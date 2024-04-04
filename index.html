@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo de Formulário e Manipulação do DOM</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .column {
+        width: 45%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+    input, textarea {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 100%;
+    }
+    button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="column">
+    <div><h2>Formulário Funcionando</h2></div>
+    <form id="exampleForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+<div class="column">
+    <div><h2>Código HTML, CSS e JavaScript</h2></div>
+    <pre id="codeExample">
+        <!-- Código será inserido aqui -->
+    </pre>
+</div>
+
+<script>
+    // Função para exibir o código do exemplo
+    function displayExampleCode() {
+        var code = `
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exemplo de Formulário e Manipulação do DOM</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+            .column {
+                width: 45%;
+                padding: 20px;
+                border: 1px solid #ccc;
+                margin: 10px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                margin-bottom: 10px;
+            }
+            input, textarea {
+                margin-bottom: 10px;
+                padding: 5px;
+                width: 100%;
+            }
+            button {
+                padding: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+        </head>
+        <body>
+        <div class="column">
+            <div><h2>Formulário Funcionando</h2></div>
+            <form id="exampleForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="column">
+            <div><h2>Código HTML, CSS e JavaScript</h2></div>
+            <pre id="codeExample">
+                <!-- Código será inserido aqui -->
+            </pre>
+        </div>
+        </html>
+        `;
+
+        var form = document.getElementById("exampleForm");
+        var labels = form.getElementsByClassName("label");
+        var inputs = form.getElementsByTagName("input");
+        var textareas = form.getElementsByTagName("textarea");
+        var button = form.getElementsByTagName("button")[0];
+
+        
+        var newElement = document.createElement("p");
+        newElement.textContent = "Manipulação do DOM com JavaScript: Este parágrafo foi adicionado dinamicamente.";
+        
+        var codeExample = document.getElementById("codeExample");
+        codeExample.textContent = code.trim();
+        codeExample.innerHTML += "<br><br>Elementos obtidos com outros métodos DOM:<br>";
+        codeExample.innerHTML += "Labels: " + labels.length + "<br>";
+        codeExample.innerHTML += "Inputs: " + inputs.length + "<br>";
+        codeExample.innerHTML += "Textareas: " + textareas.length + "<br>";
+        codeExample.innerHTML += "Botão: " + (button ? "Encontrado" : "Não encontrado") + "<br>";
+        codeExample.appendChild(newElement);
+    }
+
+    // Chamando a função para exibir o código do exemplo
+    displayExampleCode();
+</script>
+
+</body>
+</html>
